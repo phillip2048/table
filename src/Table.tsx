@@ -123,6 +123,7 @@ export interface TableProps<RecordType = unknown> extends LegacyExpandableProps<
   title?: PanelRender<RecordType>;
   footer?: PanelRender<RecordType>;
   summary?: (data: RecordType[]) => React.ReactNode;
+  insertRows?:Record<number,any>;
 
   // Customize
   id?: string;
@@ -178,6 +179,7 @@ function Table<RecordType extends DefaultRecordType>(props: TableProps<RecordTyp
     title,
     footer,
     summary,
+    insertRows,
 
     // Customize
     id,
@@ -538,6 +540,7 @@ function Table<RecordType extends DefaultRecordType>(props: TableProps<RecordTyp
       onRow={onRow}
       emptyNode={emptyNode}
       childrenColumnName={mergedChildrenColumnName}
+      insertRows={insertRows}
     />
   );
 
