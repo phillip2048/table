@@ -17,6 +17,7 @@ export interface BodyProps<RecordType> {
   rowExpandable: (record: RecordType) => boolean;
   emptyNode: React.ReactNode;
   childrenColumnName: string;
+  insertRows?:Record<number,any>;
 }
 
 function Body<RecordType>({
@@ -28,6 +29,7 @@ function Body<RecordType>({
   rowExpandable,
   emptyNode,
   childrenColumnName,
+  insertRows,
 }: BodyProps<RecordType>) {
   const { onColumnResize } = React.useContext(ResizeContext);
   const { prefixCls, getComponent } = React.useContext(TableContext);
@@ -39,27 +41,33 @@ function Body<RecordType>({
     const WrapperComponent = getComponent(['body', 'wrapper'], 'tbody');
     const trComponent = getComponent(['body', 'row'], 'tr');
     const tdComponent = getComponent(['body', 'cell'], 'td');
-
     let rows: React.ReactNode;
     if (data.length) {
       rows = data.map((record, index) => {
         const key = getRowKey(record, index);
 
         return (
-          <BodyRow
-            key={key}
-            rowKey={key}
-            record={record}
-            recordKey={key}
-            index={index}
-            rowComponent={trComponent}
-            cellComponent={tdComponent}
-            expandedKeys={expandedKeys}
-            onRow={onRow}
-            getRowKey={getRowKey}
-            rowExpandable={rowExpandable}
-            childrenColumnName={childrenColumnName}
-          />
+          <React.Fragment key={index}>
+              {index in insertRows && (
+                <React.Fragment key={`${index}_row_ad`}>
+                  {insertRows[index]}
+                </React.Fragment>
+              )}
+              <BodyRow
+              key={key}
+              rowKey={key}
+              record={record}
+              recordKey={key}
+              index={index}
+              rowComponent={trComponent}
+              cellComponent={tdComponent}
+              expandedKeys={expandedKeys}
+              onRow={onRow}
+              getRowKey={getRowKey}
+              rowExpandable={rowExpandable}
+              childrenColumnName={childrenColumnName}
+            />
+          </React.Fragment>
         );
       });
     } else {
