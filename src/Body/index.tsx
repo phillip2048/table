@@ -48,7 +48,7 @@ function Body<RecordType>({
 
         return (
           <React.Fragment key={index}>
-              {index in insertRows && (
+              {insertRows && index in insertRows && (
                 <React.Fragment key={`${index}_row_ad`}>
                   {insertRows[index]}
                 </React.Fragment>
