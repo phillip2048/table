@@ -28,7 +28,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:react-component/table.git"
+    "url": "git@github.com:phillip2048/table.git"
   },
   "bugs": {
     "url": "http://github.com/react-component/table/issues"
