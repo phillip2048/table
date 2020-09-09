@@ -23,13 +23,10 @@ Thumbs.db
 node_modules
 .cache
 dist
-assets/**/*.css
 build
-lib
 coverage
 yarn.lock
 package-lock.json
-es/
 .storybook
 .doc
 !tests/__mocks__/rc-util/lib
