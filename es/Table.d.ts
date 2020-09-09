@@ -46,7 +46,7 @@ export interface TableProps<RecordType = unknown> extends LegacyExpandableProps<
     title?: PanelRender<RecordType>;
     footer?: PanelRender<RecordType>;
     summary?: (data: RecordType[]) => React.ReactNode;
-    insertRows?: Record<number, any>;
+    insertRows?: {};
     id?: string;
     showHeader?: boolean;
     components?: TableComponents<RecordType>;

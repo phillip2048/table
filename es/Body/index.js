@@ -1,3 +1,4 @@
+import _typeof from "@babel/runtime/helpers/esm/typeof";
 import * as React from 'react';
 import BodyRow from './BodyRow';
 import TableContext from '../context/TableContext';
@@ -42,7 +43,7 @@ function Body(_ref) {
         var key = getRowKey(record, index);
         return React.createElement(React.Fragment, {
           key: index
-        }, index in insertRows && React.createElement(React.Fragment, {
+        }, insertRows !== null && _typeof(insertRows) === 'object' && index in insertRows && React.createElement(React.Fragment, {
           key: "".concat(index, "_row_ad")
         }, insertRows[index]), React.createElement(BodyRow, {
           key: key,

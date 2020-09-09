@@ -9,7 +9,7 @@ export interface BodyProps<RecordType> {
     rowExpandable: (record: RecordType) => boolean;
     emptyNode: React.ReactNode;
     childrenColumnName: string;
-    insertRows?: Record<number, any>;
+    insertRows?: {};
 }
 declare function Body<RecordType>({ data, getRowKey, measureColumnWidth, expandedKeys, onRow, rowExpandable, emptyNode, childrenColumnName, insertRows, }: BodyProps<RecordType>): JSX.Element;
 declare const MemoBody: React.MemoExoticComponent<typeof Body>;

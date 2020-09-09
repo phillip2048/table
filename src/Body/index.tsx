@@ -49,7 +49,7 @@ function Body<RecordType>({
         return (
           <React.Fragment key={index}>
               {insertRows !== null &&
-              typeof insertRows === 'object' && 
+              typeof insertRows === 'object' &&
               index in insertRows &&
               (
                 <React.Fragment key={`${index}_row_ad`}>
