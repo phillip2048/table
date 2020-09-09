@@ -17,7 +17,7 @@ export interface BodyProps<RecordType> {
   rowExpandable: (record: RecordType) => boolean;
   emptyNode: React.ReactNode;
   childrenColumnName: string;
-  insertRows?:Record<number,any>;
+  insertRows?:{};
 }
 
 function Body<RecordType>({
